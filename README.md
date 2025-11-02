@@ -268,3 +268,26 @@ material nor shall the fact of release constitute any such warranty. The
 software is provided on the condition that neither the USGS nor the U.S.
 Government shall be held liable for any damages resulting from the
 authorized or unauthorized use of the software.
+
+## Quickstart: Retrieve Water Quality Data
+
+This short example shows how to quickly get started using `dataRetrieval` to download water quality data from USGS sites.
+
+### Installation
+
+```r
+# Install from CRAN
+install.packages("dataRetrieval")
+
+# Load library
+library(dataRetrieval)
+# Find water quality data for USGS site 01646500 (Potomac River)
+siteNumber <- "01646500"
+parameterCd <- "00618"  # Nitrate plus nitrite concentration as nitrogen
+
+# Retrieve data using readWQPdata()
+waterQualityData <- readWQPdata(siteNumber, parameterCd)
+
+# Display first few rows
+head(waterQualityData)
+
